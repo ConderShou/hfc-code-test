@@ -47,8 +47,7 @@ app.get(
     >
   ) => {
     const userId = req.params["userId"];
-
-    // TODO: Get content for user
+    
     res.json([]);
   }
 );

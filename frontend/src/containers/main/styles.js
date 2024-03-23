@@ -9,4 +9,6 @@ export const UsersListContainer = styled.div`
   flex-direction: column;
 `;
 
-export const UserContainer = styled.div``;
+export const UserContainer = styled.div`
+  display: flex;
+`;

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, UserContainer, UsersListContainer } from "./styles";
 import { onLoadDashboardUsers } from "../../redux/actions/dashboard-actions";
+import { onSelectContent } from "../../redux/actions/content-actions";
 
 export const MainContainer = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,10 @@ export const MainContainer = () => {
     // eslint-disable-next-line
   }, []);
 
+  const onSelectUserContent = (userId) => {
+    dispatch(onSelectContent(userId));
+  }
+
   return (
     <Container>
       <h1>Users</h1>
@@ -21,7 +26,7 @@ export const MainContainer = () => {
         {users.map((user) => (
           <UserContainer key={`user-${user.id}`}>
             <h3>{user.name}</h3>
-            <button>View Content</button>
+            <button onClick={() => onSelectUserContent(user.id)}>View Content</button>
           </UserContainer>
         ))}
       </UsersListContainer>
