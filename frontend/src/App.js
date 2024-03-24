@@ -7,6 +7,7 @@ import { thunk } from "redux-thunk";
 import logger from "redux-logger";
 import { createStore } from "redux";
 import dashboard from "./redux/reducer/dashboard-reducer";
+import content from "./redux/reducer/content-reducer";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -19,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
 const initialState = {
   dashboard: {
     users: [],
+    content: {}
   },
 };
 
@@ -26,6 +28,7 @@ function App() {
   const store = createStore(
     combineReducers({
       dashboard,
+      content,
     }),
     initialState,
     applyMiddleware(thunk, logger)
